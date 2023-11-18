@@ -5,47 +5,28 @@
 }
 
 body{
-    background-color: #fffafa;
-    background-color: #7d93a6;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(72deg, #766ec5 5%, #00ced1 95%);
 }
 
 header .container{
     display: grid;
     width: 100vw;
-    grid-template-columns: 2fr 3fr 0.7fr 1fr 1fr;
-    background-color: #1f104f;
+    grid-template-columns: 8fr 0.7fr 1fr 1fr;
+    background-color: none;
     color: white;
     font-family: 'Pixelify Sans', sans-serif;
     font-size: 20px;
     padding: 30px;
-    padding-left: 170px;
+    padding-left: 175px;
     align-items: center;
 }
 
 header .container h1{
     cursor: default;
-}
-
-.search-div::after{
-    content:"";
-    width: 55%;
-    height: 2px;
-    background-color: #fff;
-    display: block;
-    margin-top: 3px;
-}
-
-.search{
-    width: 400px;
-    border: none;
-    background-color: #1f104f;
-    color: #fff;
-    cursor: pointer;
-    font-family: 'Pixelify Sans', sans-serif;
-}
-
-.search:focus{
-    outline: none;
 }
 
 header .container a{
@@ -62,10 +43,10 @@ header .container-1{
     display: grid;
     width: 100vw;
     grid-template-columns: 3% 10% 3.5% 14% 3% 12% 3% 11% 3% 30%;
-    background-color: #1f104f;
+    background-color: none;
     color: white;
     padding: 10px;
-    padding-left: 375px;
+    padding-left: 450px;
     font-family: 'Pixelify Sans', sans-serif;
     font-size: 20px;
 }
@@ -101,4 +82,78 @@ header .container-1 a{
 
 .Info:hover{
     text-decoration: underline;
+}
+
+.content{
+    height: 520px;
+    width: 930px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navegation{
+    position: absolute;
+    bottom: 20px;
+    left: 465px;
+    transform: translate(-50%);
+    display: flex;
+}
+
+.bar{
+    width: 70px;
+    height: 17px;
+    border: solid #00ced1;
+    border-radius: 5px;
+    margin: 6px;
+    cursor: pointer;
+    transition: .6s;
+}
+
+.bar:hover{
+    background-color: #00ced1;
+}
+
+.slides input{
+    display: none;
+}
+
+.slides{
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.slide{
+    width: 20%;
+    transition: .6s;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+
+}
+
+#slide1:checked ~ .s1{
+    margin-left: 0;
+}
+
+#slide2:checked ~ .s1{
+    margin-left: -20%;
+}
+
+#slide3:checked ~ .s1{
+    margin-left: -40%;
+}
+
+#slide4:checked ~ .s1{
+    margin-left: -60%;
+}
+
+#slide5:checked ~ .s1{
+    margin-left: -80%;
 }
