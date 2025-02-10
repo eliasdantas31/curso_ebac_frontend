@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --color1: #fff;
+    --color2: #000;
+    --color3: #4169E1;
+    --color4: #87CEFA;
+}
+
+body{
+    background-color: #DCDCDC;
+}
+
+.d-flex{
+    display: flex;
+}
+
+header{
+    height: 65px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--color1);
+    background-color: var(--color3);
+    font-family: "Roboto", serif;
+    &>ul{
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        &>li{
+            list-style: none;
+            &>a{
+                color: var(--color1);
+                text-decoration: none;
+                font-size: 17px;
+                font-weight: bold;
+            }
+        }
+    }
+    &>div{
+        display: none;
+        &>a{
+            color: var(--color1);
+            font-size: 25px;
+        }
+    }
+}
+
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.menu-ham{
+    display: none;
+    background-color: var(--color4);
+    position: sticky;
+    top: 65px;
+    left: 0;
+    &>ul{
+        padding: 0;
+        &>li{
+            width: 100%;
+            border: 1px solid var(--color1);
+            padding: 10px 0;
+            list-style: none;
+            &>a{
+                color: var(--color1);
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.content{
+    padding: 50px 80px 0px 80px;
+}
+
+#sobre, #produtos, #perguntas{
+    margin: 60px 0;
+}
+
+section#sobre{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    &>div.sobre-img{
+        justify-content: center;
+    }
+    &>div.sobre-text{
+        color: var(--color3);
+        &>hr{
+            border: 2px solid var(--color3);
+        }
+        &>h3{
+            font-size: 20px;
+            color: var(--color2);
+        }
+    }
+}
+
+section#produtos{
+    color: var(--color3);
+    &>hr{
+        border: 2px solid var(--color3);
+    }
+    &>div{
+        width: 100%;
+        &>div{
+            &>div.col{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                color: var(--color2);
+                &>button{
+                    height: 45px;
+                    width: 80%;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    color: var(--color1);
+                    background-color: var(--color3);
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+section#perguntas{
+    color: var(--color3);
+    &>hr{
+        border: 2px solid var(--color3);
+    }
+}
+
+footer{
+    height: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--color3);
+    &>div{
+        color: var(--color1);
+    }
+    &>ul{
+        width: 10%;
+        justify-content: space-around;
+        &>li{
+            list-style: none;
+            &>a{
+                color: var(--color1);
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+    
+@media (max-width: 1023px) {
+    .content{
+        padding: 25px 40px 0px 40px;
+    }
+
+    header{
+        &>ul{
+            display: none;
+        }
+        &>div{
+            display: block;
+        }
+    }
+
+    section#sobre{
+        display: flex;
+        flex-direction: column;
+        &>div.sobre-text{
+            &>h3{
+                font-size: 20px;
+                color: var(--color2);
+            }
+        }
+    }
+
+    section#produtos{
+        &>div{
+            &>div{
+                &>div.col{
+                    margin: 10px 0;
+                }
+            }
+        }
+    }
+
+    footer{
+        &>div{
+            &>p{
+                font-size: 14px;
+            }
+        }
+        &>ul{
+            width: 25%;
+        }
+    }
+}
