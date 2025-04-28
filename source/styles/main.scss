@@ -1,0 +1,47 @@
+@use './config/reset.scss';
+@use './config/variaveis.scss';
+
+@mixin display(){
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+body {
+    background-color: variaveis.$cor1;
+}
+
+header{
+    width: 100%;
+    font-family: variaveis.$fontPrincipal;
+    position: sticky;
+    top: 0;
+    left: 0;
+    div{
+        @include display();
+        padding: 15px;
+        nav{
+            width: 25%;
+            ul{
+                @include display();
+                li{
+                    list-style: none;
+                    a{
+                        text-decoration: none;
+                        color: variaveis.$cor2;
+                        transition: ease-in 2s;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+section{
+    height: 100vh;
+    background-color: variaveis.$cor1;
+}
