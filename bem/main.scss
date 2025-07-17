@@ -8,29 +8,28 @@
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-column-gap: 1%;
+}
 
-    &__item {
-        border: 1px solid #ccc;
-        padding: 8px;
-        margin: 8px;
+.produto {
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 8px;
 
-        &__destaque {
-            border: 2px solid variaveis.$gold;
-            padding: 8px;
-            background-color: variaveis.$cor1;
-        }
+    &--destaque {
+        border: 2px solid variaveis.$gold;
+        background-color: variaveis.$cor1;
     }
 
-    &__item__imagem {
+    &__imagem {
         width: 100%;
     }
 
-    &__item__title {
+    &__nome {
         font-size: 1.2em;
         margin: 8px 0;
     }
 
-    &__item__descricao {
+    &__descricao {
         color: variaveis.$cor2;
     }
 }
