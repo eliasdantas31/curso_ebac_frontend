@@ -1,0 +1,36 @@
+@use "./config/config.scss";
+@use "./config/variaveis.scss";
+
+.produtos {
+    max-width: 640px;
+    width: 100%;
+    margin: 56px auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-column-gap: 1%;
+
+    &__item {
+        border: 1px solid #ccc;
+        padding: 8px;
+        margin: 8px;
+
+        &__destaque {
+            border: 2px solid variaveis.$gold;
+            padding: 8px;
+            background-color: variaveis.$cor1;
+        }
+    }
+
+    &__item__imagem {
+        width: 100%;
+    }
+
+    &__item__title {
+        font-size: 1.2em;
+        margin: 8px 0;
+    }
+
+    &__item__descricao {
+        color: variaveis.$cor2;
+    }
+}
