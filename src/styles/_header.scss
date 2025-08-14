@@ -1,0 +1,52 @@
+@use './config/variaveis' as v;
+
+.header {
+    height: 30vh;
+    background-color: v.$header-color;
+    text-align: center;
+
+    &__container {
+        position: relative;
+        bottom: -50%;
+
+        &__avatar {
+            border-radius: 50%;
+            margin-bottom: 24px;
+            width: 180px;
+            height: 180px;
+        }
+
+        &__name {
+            font-size: 2em;
+        }
+
+        &__username {
+            margin: 16px 0 32px;
+            font-size: 1.1em;
+        }
+
+        &__link {
+            background-color: v.$header-color;
+            color: v.$bg-color;
+            padding: 8px 16px;
+            display: inline-block;
+            margin-top: 24px;
+            text-decoration: none;
+        }
+
+        &__numbers {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            &-item {
+                font-size: 3em;
+                font-weight: bold;
+
+                h4 {
+                    font-size: .3em;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
