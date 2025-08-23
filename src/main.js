@@ -1,3 +1,4 @@
+//npm run build, para rodar o babel
 const alunos = [
     {nome: "Ana", nota: 10},
     {nome: "Pedro", nota: 5},
