@@ -1,124 +1,77 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
-const display = ref("0");
+const num1 = ref(0);
+const num2 = ref(0);
+const operacao = ref("+");
 
-function append(value) {
-  if (display.value === "0" && !isNaN(value)) {
-    display.value = value;
-  } else {
-    display.value += value;
+const resultado = computed(() => {
+  switch (operacao.value) {
+    case "+":
+      return num1.value + num2.value;
+    case "-":
+      return num1.value - num2.value;
+    case "*":
+      return num1.value * num2.value;
+    case "/":
+      return num2.value !== 0 ? (num1.value / num2.value).toFixed(2) : "Erro (divisão por zero)";
+    default:
+      return 0;
   }
-}
-
-function clearDisplay() {
-  display.value = "0";
-}
-
-function calculate() {
-  try {
-    display.value = eval(display.value).toString();
-  } catch {
-    display.value = "Erro";
-  }
-}
+});
 </script>
 
 <template>
   <div class="calculator__body">
-    <div class="calculator__body__display">
-      <span>{{ display }}</span>
+    <h2>Calculadora</h2>
+    <div class="inputs">
+      <input type="number" v-model.number="num1" placeholder="Primeiro número" />
+      <select v-model="operacao">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <input type="number" v-model.number="num2" placeholder="Segundo número" />
     </div>
-    <div class="calculator__body__buttons">
-      <!-- Primeira linha -->
-      <button @click="append('1')">1</button>
-      <button @click="append('2')">2</button>
-      <button @click="append('3')">3</button>
-      <button @click="append('+')">+</button>
-
-      <!-- Segunda linha -->
-      <button @click="append('4')">4</button>
-      <button @click="append('5')">5</button>
-      <button @click="append('6')">6</button>
-      <button @click="append('-')">-</button>
-
-      <!-- Terceira linha -->
-      <button @click="append('7')">7</button>
-      <button @click="append('8')">8</button>
-      <button @click="append('9')">9</button>
-      <button @click="append('/')">/</button>
-
-      <!-- Quarta linha -->
-      <button @click="append('0')">0</button>
-      <button class="clear" @click="clearDisplay">C</button>
-      <button class="equal" @click="calculate">=</button>
-      <button @click="append('*')">*</button>
+    <div class="resultado">
+      <strong>Resultado:</strong> {{ resultado }}
     </div>
   </div>
 </template>
 
 <style scoped>
 .calculator__body {
-  height: max-content;
-  width: 250px;
+  width: max-content;
   margin: auto;
   font-family: Arial, sans-serif;
   background-color: #222;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.calculator__body__display {
-  background: #000;
-  color: #fff;
-  text-align: right;
-  padding: 15px;
-  font-size: 24px;
+  padding: 20px;
   border-radius: 8px;
-  margin-bottom: 15px;
-  min-height: 40px;
+  color: white;
+  text-align: center;
+}
+
+.inputs {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
-.calculator__body__buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-
-.calculator__body__buttons button {
-  height: 50px;
-  font-size: 18px;
-  border: none;
+input,
+select {
+  flex: 1;
+  padding: 8px;
   border-radius: 6px;
-  background: #f0f0f0;
-  cursor: pointer;
-  transition: 0.2s;
+  border: 1px solid #ccc;
+  font-size: 16px;
 }
 
-.calculator__body__buttons button:hover {
-  background: #ddd;
-}
-
-.calculator__body__buttons .clear {
-  grid-column: span 1;
-  background: #f44336;
-  color: white;
-}
-
-.calculator__body__buttons .clear:hover {
-  background: #e53935;
-}
-
-.calculator__body__buttons .equal {
-  grid-column: span 1;
-  background: #4caf50;
-  color: white;
-}
-
-.calculator__body__buttons .equal:hover {
-  background: #43a047;
+.resultado {
+  background: #000;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 20px;
 }
 </style>

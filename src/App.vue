@@ -1,6 +1,6 @@
 <script setup>
   import { reactive } from 'vue';
-  import Calculator from './componentes/calculator_body.vue';
+  import Calculator from './components/calculator_body.vue';
 
 </script>
 
@@ -15,10 +15,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  body{
-    
   }
 
   .container{
